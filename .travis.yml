@@ -30,11 +30,12 @@ before_install:
   - mkdir -p $GOPATH/src/github.com/google && cd $GOPATH/src/github.com/google && git clone --branch v0.5.6 https://github.com/google/go-cmp.git
   - mkdir -p $GOPATH/src/golang.org/x && cd $GOPATH/src/golang.org/x && git clone --branch v0.1.0 https://go.googlesource.com/crypto
   - mkdir -p $GOPATH/src/github.com/mattn && cd $GOPATH/src/github.com/mattn && git clone --branch v0.0.9 https://github.com/mattn/goveralls.git
+#  - cd /app
   - go get -v github.com/wadey/gocovmerge
   - pip install cram --user
 
 install:
-  - go get -t -v ./...
+  - go get -t -v ./... || true
 
 script:
   - go test . -v -covermode=count -coverprofile=profile.cov
