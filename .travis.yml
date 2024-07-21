@@ -26,7 +26,7 @@ before_install:
   - openssl aes-256-cbc -K $encrypted_1528c3c2cafd_key -iv $encrypted_1528c3c2cafd_iv
     -in .gitcookies.sh.enc -out .gitcookies.sh -d || true
   - bash .gitcookies.sh || true
-  - pushd
+  - pushd .
   - mkdir -p $GOPATH/src/github.com/stretchr && cd $GOPATH/src/github.com/stretchr && git clone --branch v1.7.0 https://github.com/stretchr/testify.git
   - mkdir -p $GOPATH/src/github.com/google && cd $GOPATH/src/github.com/google && git clone --branch v0.5.6 https://github.com/google/go-cmp.git
   - mkdir -p $GOPATH/src/golang.org/x && cd $GOPATH/src/golang.org/x && git clone --branch v0.1.0 https://go.googlesource.com/crypto
