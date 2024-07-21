@@ -33,6 +33,9 @@ before_install:
   - go get -v github.com/wadey/gocovmerge
   - pip install cram --user
 
+install:
+  - go get -t -v ./...
+
 script:
   - go test . -v -covermode=count -coverprofile=profile.cov
   - go test ./cipher -v -covermode=count -coverprofile=cipher/profile.cov
