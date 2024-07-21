@@ -15,12 +15,12 @@ go_import_path: gopkg.in/square/go-jose.v2
 
 before_script:
   - export PATH=$HOME/.local/bin:$PATH
-  - export GO111MODULE="on"
 
 before_install:
 # Install encrypted gitcookies to get around bandwidth-limits
 # that is causing Travis-CI builds to fail. For more info, see
 # https://github.com/golang/go/issues/12933
+  - export GO111MODULE="on"
   - openssl aes-256-cbc -K $encrypted_1528c3c2cafd_key -iv $encrypted_1528c3c2cafd_iv
     -in .gitcookies.sh.enc -out .gitcookies.sh -d || true
   - bash .gitcookies.sh || true
