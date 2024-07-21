@@ -24,11 +24,11 @@ before_install:
     -in .gitcookies.sh.enc -out .gitcookies.sh -d || true
   - bash .gitcookies.sh || true
   - go get github.com/wadey/gocovmerge
+  - go get golang.org/x/tools
   - go get github.com/mattn/goveralls
   - go get github.com/stretchr/testify/assert
   - go get github.com/stretchr/testify/require
   - go get github.com/google/go-cmp/cmp
-  - go get golang.org/x/tools
   - go get code.google.com/p/go.tools/cmd/cover || true
   - pip install cram --user
 
