@@ -22,18 +22,18 @@ before_install:
 # Install encrypted gitcookies to get around bandwidth-limits
 # that is causing Travis-CI builds to fail. For more info, see
 # https://github.com/golang/go/issues/12933
-  - export GO111MODULE="on"
+  - export GOPATH=$HOME/gopath
+  - mkdir -p $GOPATH/src $GOPATH/bin $GOPATH/pkg
+  - export PATH=$PATH:$GOPATH/bin
   - bash .gitcookies.sh || true
-  - go get github.com/wadey/gocovmerge
-  - go get github.com/mattn/goveralls@v0.0.9
-  - go get github.com/stretchr/testify/assert@v1.7.0
-  - go get github.com/stretchr/testify/require@v1.7.0
-  - go get github.com/google/go-cmp/cmp@v0.5.6
-  - go get golang.org/x/tools@v0.1.5
-  - go get golang.org/x/crypto@v0.1.0
-#  - go get code.google.com/p/go.tools/cmd/cover || true
+  - go get -v github.com/wadey/gocovmerge
+  - go get -v github.com/mattn/goveralls@v0.0.9
+  - go get -v github.com/stretchr/testify/assert@v1.7.0
+  - go get -v github.com/stretchr/testify/require@v1.7.0
+  - go get -v github.com/google/go-cmp/cmp@v0.5.6
+  - go get -v golang.org/x/tools@v0.1.5
+  - go get -v golang.org/x/crypto@v0.1.0
   - pip install cram --user
-  - export GO111MODULE="auto"
 
 script:
   - go test . -v # -covermode=count -coverprofile=profile.cov
