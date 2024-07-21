@@ -34,7 +34,6 @@ before_install:
   - pip install cram --user
 
 script:
-  - go build
   - go test . -v # -covermode=count -coverprofile=profile.cov
   - go test ./cipher # -v -covermode=count -coverprofile=cipher/profile.cov
   - go test ./jwt -v # -covermode=count -coverprofile=jwt/profile.cov
