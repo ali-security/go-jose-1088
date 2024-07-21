@@ -7,6 +7,8 @@ matrix:
     allow_failures:
       - go: tip
 
+install: true
+
 go:
   - '1.14.x'
   - '1.15.x'
@@ -32,6 +34,7 @@ before_install:
   - pip install cram --user
 
 script:
+  - go build
   - go test . -v # -covermode=count -coverprofile=profile.cov
   - go test ./cipher # -v -covermode=count -coverprofile=cipher/profile.cov
   - go test ./jwt -v # -covermode=count -coverprofile=jwt/profile.cov
